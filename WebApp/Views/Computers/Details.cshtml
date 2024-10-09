@@ -1,0 +1,20 @@
+@model WebApp.Models.Computer
+
+<div class="container py-5">
+    <h1 class="mb-4">Szczegóły komputera</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">
+                <strong>Procesor:</strong> @Model.Processor <br/>
+                <strong>Pamięć:</strong> @Model.Memory <br/>
+                <strong>Karta graficzna:</strong> @Model.GraphicsCard <br/>
+                <strong>Producent:</strong> @Model.Manufacturer <br/>
+                <strong>Data produkcji:</strong> @Model.ProductionDate.ToString("yyyy-MM-dd") <br/>
+            </p>
+            <a href="@Url.Action("Edit", "Computers", new { id = Model.Id })" class="btn btn-primary">Edytuj</a>
+            <a href="@Url.Action("Index", "Computers")" class="btn btn-secondary">Wróć do listy</a>
+        </div>
+    </div>
+</div>

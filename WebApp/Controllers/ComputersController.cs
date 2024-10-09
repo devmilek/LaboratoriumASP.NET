@@ -64,4 +64,33 @@ public class ComputersController : Controller
             return View(); // ponowne wyświetlenie formularza z informacjami o błędach
         }
     }
+    
+    [HttpGet]
+    public IActionResult Details(int id)
+    {
+    
+        if (_computers.Keys.Contains(id))
+        {
+            return View(_computers[id]);
+        }
+        else
+        {
+            return NotFound();
+        };
+    }
+    
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+    
+        if (_computers.Keys.Contains(id))
+        {
+            _computers.Remove(id);
+            return RedirectToAction("Index");
+        }
+        else
+        {
+            return NotFound();
+        };
+    }
 }

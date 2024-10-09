@@ -2,7 +2,7 @@
 
 <div class="container py-5">
     <h1 class="mb-4">Edytuj komputer</h1>
-    <form asp-action="Create" asp-controller="Computers" method="POST">
+    <form asp-action="Edit" asp-controller="Computers" method="POST">
         @if (!ViewData.ModelState.IsValid)
         {
             <div asp-validation-summary="All" class="alert alert-danger" role="alert"></div>
@@ -40,7 +40,7 @@
 
         <div class="form-group mb-3">
             <label asp-for="ProductionDate">Data produkcji</label>
-            <input type="date" class="form-control" asp-for="ProductionDate" value="@Model.ProductionDate.ToString("d")"/>
+            <input type="date" class="form-control" asp-for="ProductionDate" value="@Model.ProductionDate.ToString("yyyy-MM-dd")"/>
             <span asp-validation-for="ProductionDate" class="text-danger"></span>
         </div>
 
