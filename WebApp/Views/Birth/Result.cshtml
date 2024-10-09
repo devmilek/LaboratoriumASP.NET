@@ -1,0 +1,25 @@
+@model WebApp.Models.BirthCalculator
+
+@{
+var culture = new System.Globalization.CultureInfo("pl-PL");
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Wynik</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Cześć <strong>@Model.name</strong>, masz <strong>@Model.CalculateYears()</strong> lat. A urodziłes się <strong>@Model.birthDate.ToString("d MMMM yyyy", culture)</strong>
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="/Birth/Form" class="btn btn-primary">Powrót do formularza</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
