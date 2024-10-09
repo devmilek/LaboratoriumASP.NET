@@ -27,25 +27,6 @@ public class HomeController : Controller
     {
         return View();
     }
-    
-    public IActionResult Calculator(Operator op, double a, double b)
-    {
-        
-        double result = op switch
-        {
-            Operator.Add => a + b,
-            Operator.Sub => a - b,
-            Operator.Mul => a * b,
-            Operator.Div => b != 0 ? a / b : double.NaN,
-            _ => double.NaN
-        };
-        
-        ViewBag.Op = op;
-        ViewBag.A = a;
-        ViewBag.B = b;
-        ViewBag.Result = result;
-        return View();
-    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

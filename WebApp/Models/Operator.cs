@@ -1,6 +1,6 @@
 ﻿namespace WebApp.Models;
 
-public enum Operator
+public enum Operators
 {
     Unknown,
     Add,

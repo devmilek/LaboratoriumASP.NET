@@ -1,0 +1,25 @@
+﻿@model WebApp.Models.Calculator
+
+@{
+    ViewData["Title"] = "Calculation Result";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Calculation Result</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>@Model.X</strong> @Model.Op <strong>@Model.Y</strong> = <strong>@Model.Calculate()</strong>
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="/Calculator/Form" class="btn btn-primary">Back to Calculator</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
