@@ -24,6 +24,6 @@ public class Computer
     public string Manufacturer { get; set; }
 
     [Required(ErrorMessage = "Proszę uzupełnić datę produkcji!")]
-    [DataType(DataType.Date)]
+    [DataType(DataType.Date, ErrorMessage = "Proszę podać poprawną datę!")]
     public DateTime ProductionDate { get; set; }
 }

@@ -1,0 +1,49 @@
+@model WebApp.Models.Computer
+
+<div class="container py-5">
+    <h1 class="mb-4">Dodaj komputer</h1>
+    <form asp-action="Create" asp-controller="Computers" method="POST">
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div asp-validation-summary="All" class="alert alert-danger" role="alert"></div>
+        }
+
+        <div class="form-group mb-3">
+            <label asp-for="Name">Nazwa</label>
+            <input class="form-control" asp-for="Name"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Processor">Procesor</label>
+            <input class="form-control" asp-for="Processor"/>
+            <span asp-validation-for="Processor" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Memory">Pamięć</label>
+            <input class="form-control" asp-for="Memory"/>
+            <span asp-validation-for="Memory" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="GraphicsCard">Karta graficzna</label>
+            <input class="form-control" asp-for="GraphicsCard"/>
+            <span asp-validation-for="GraphicsCard" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Manufacturer">Producent</label>
+            <input class="form-control" asp-for="Manufacturer"/>
+            <span asp-validation-for="Manufacturer" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="ProductionDate">Data produkcji</label>
+            <input type="date" class="form-control" asp-for="ProductionDate"/>
+            <span asp-validation-for="ProductionDate" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Zapisz</button>
+    </form>
+</div>

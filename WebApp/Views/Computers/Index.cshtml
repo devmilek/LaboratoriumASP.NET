@@ -1,0 +1,43 @@
+@model Dictionary<int, Computer>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Lista komputerów</h1>
+        <a class="btn btn-primary" asp-controller="Computers" asp-action="Create">Utwórz komputer</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+    <div class="alert alert-info">
+        Brak komputerów do wyświetlenia. <a asp-controller="Computers" asp-action="Create">Dodaj nowy komputer</a>.
+    </div>
+    }
+    else
+    {
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Procesor</th>
+            <th>Pamięć</th>
+            <th>Karta graficzna</th>
+            <th>Producent</th>
+            <th>Data produkcji</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach(var computer in Model)
+        {
+        <tr>
+            <td>@computer.Value.Name</td>
+            <td>@computer.Value.Processor</td>
+            <td>@computer.Value.Memory</td>
+            <td>@computer.Value.GraphicsCard</td>
+            <td>@computer.Value.Manufacturer</td>
+            <td>@computer.Value.ProductionDate.ToString("d")</td>
+        </tr>
+        }
+        </tbody>
+    </table>
+    }
+</div>
