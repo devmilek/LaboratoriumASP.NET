@@ -1,5 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using Data.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApp.Models;
 
@@ -26,4 +29,10 @@ public class Computer
     [Required(ErrorMessage = "Proszę uzupełnić datę produkcji!")]
     [DataType(DataType.Date, ErrorMessage = "Proszę podać poprawną datę!")]
     public DateTime ProductionDate { get; set; }
+    
+    [HiddenInput]
+    public int OrganizationId { get; set; }
+
+    [ValidateNever]
+    public List<SelectListItem> Organizations{ get; set; }
 }

@@ -32,5 +32,8 @@ namespace Data.Entities
         [Required]
         [Column("production_date")]
         public DateTime ProductionDate { get; set; }
+        
+        public int OrganizationId { get; set; }
+        public OrganizationEntity? Organization { get; set; }
     }
 }

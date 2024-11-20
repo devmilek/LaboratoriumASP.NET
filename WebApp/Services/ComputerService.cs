@@ -12,6 +12,7 @@ public interface IComputerService
     List<Computer> FindAll();
     Computer? FindById(int id);
     void Update(Computer computer);
+    List<OrganizationEntity> FindAllOrganizations();
 }
 
 public class EFComputerService : IComputerService
@@ -55,5 +56,10 @@ public class EFComputerService : IComputerService
     {
         _context.Computers.Update(ComputerMapper.ToEntity(computer));
         _context.SaveChanges();
+    }
+    
+    public List<OrganizationEntity> FindAllOrganizations()
+    {
+        return _context.Organizations.ToList();
     }
 }
