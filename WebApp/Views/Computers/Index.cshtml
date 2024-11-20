@@ -1,4 +1,4 @@
-@model Dictionary<int, Computer>
+@model List<Data.Entities.ComputerEntity>
 
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -30,25 +30,25 @@
         @foreach(var computer in Model)
         {
         <tr>
-            <td>@computer.Value.Name</td>
-            <td>@computer.Value.Processor</td>
-            <td>@computer.Value.Memory</td>
-            <td>@computer.Value.GraphicsCard</td>
-            <td>@computer.Value.Manufacturer</td>
-            <td>@computer.Value.ProductionDate.ToString("d")</td>
+            <td>@computer.Name</td>
+            <td>@computer.Processor</td>
+            <td>@computer.Memory</td>
+            <td>@computer.GraphicsCard</td>
+            <td>@computer.Manufacturer</td>
+            <td>@computer.ProductionDate.ToString("d")</td>
             <td>
                 <a class="btn btn-primary"
                    asp-action="Edit"
                    asp-controller="Computers"
-                   asp-route-id=@computer.Value.Id>Edytuj</a>
+                   asp-route-id=@computer.Id>Edytuj</a>
                 <a class="btn btn-primary"
                    asp-action="Details"
                    asp-controller="Computers"
-                   asp-route-id=@computer.Value.Id>Szczegóły</a>
+                   asp-route-id=@computer.Id>Szczegóły</a>
                 <a class="btn btn-primary"
                    asp-action="Delete"
                    asp-controller="Computers"
-                   asp-route-id=@computer.Value.Id>Usuń</a>
+                   asp-route-id=@computer.Id>Usuń</a>
             </td>
         </tr>
         }

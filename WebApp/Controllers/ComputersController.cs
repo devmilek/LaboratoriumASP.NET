@@ -1,4 +1,6 @@
+using Data;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Mappers;
 using WebApp.Models;
 
 namespace WebApp.Controllers;
@@ -11,11 +13,19 @@ public class ComputersController : Controller
         {2, new Computer { Id = 2, Name = "Komputer 2", Processor = "Intel i7", Memory = "16GB", GraphicsCard = "Nvidia GTX 1060", Manufacturer = "HP", ProductionDate = new DateTime(2021, 1, 1) }},
         {3, new Computer { Id = 3, Name = "Komputer 3", Processor = "AMD Ryzen 5", Memory = "32GB", GraphicsCard = "AMD Radeon RX 5700", Manufacturer = "Lenovo", ProductionDate = new DateTime(2022, 1, 1) }}
     };
+    
+    private readonly AppDbContext _context;
+
+    public ComputersController(AppDbContext context)
+    {
+        _context = context;
+    }
     // GET
     
     public IActionResult Index()
     {
-        return View(_computers);
+        var computers = _context.Computers.ToList();
+        return View(computers);
     }
     
     [HttpGet]
@@ -29,10 +39,9 @@ public class ComputersController : Controller
     {
         if (ModelState.IsValid)
         {
-            int id = _computers.Keys.Count != 0 ? _computers.Keys.Max() : 0;
-            model.Id = id + 1;
-            _computers.Add(model.Id, model);
-
+            var entity = ComputerMapper.ToEntity(model);
+            _context.Computers.Add(entity);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         } else {
             return View(); // ponowne wyświetlenie formularza z informacjami o błędach
@@ -42,15 +51,15 @@ public class ComputersController : Controller
     [HttpGet]
     public IActionResult Edit(int id)
     {
-    
-        if (_computers.Keys.Contains(id))
+        var computer = _context.Computers.Find(id);
+        if (computer != null)
         {
-            return View(_computers[id]);
+            return View(ComputerMapper.FromEntity(computer));
         }
         else
         {
             return NotFound();
-        };
+        }
     }
     
     [HttpPost]
@@ -58,7 +67,9 @@ public class ComputersController : Controller
     {
         if (ModelState.IsValid)
         {
-            _computers[model.Id] = model;
+            var entity = ComputerMapper.ToEntity(model);
+            _context.Computers.Update(entity);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         } else {
             return View(); // ponowne wyświetlenie formularza z informacjami o błędach
@@ -68,10 +79,10 @@ public class ComputersController : Controller
     [HttpGet]
     public IActionResult Details(int id)
     {
-    
-        if (_computers.Keys.Contains(id))
+        var computer = _context.Computers.Find(id);
+        if (computer != null)
         {
-            return View(_computers[id]);
+            return View(ComputerMapper.FromEntity(computer));
         }
         else
         {
@@ -82,15 +93,16 @@ public class ComputersController : Controller
     [HttpGet]
     public IActionResult Delete(int id)
     {
-    
-        if (_computers.Keys.Contains(id))
+        var computer = _context.Computers.Find(id);
+        if (computer != null)
         {
-            _computers.Remove(id);
+            _context.Computers.Remove(computer);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
         else
         {
             return NotFound();
-        };
+        }
     }
 }

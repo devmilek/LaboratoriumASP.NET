@@ -1,3 +1,5 @@
+using WebApp.Services;
+
 namespace WebApp;
 
 public class Program
@@ -8,6 +10,8 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddDbContext<Data.AppDbContext>();
+        builder.Services.AddTransient<IComputerService, EFComputerService>();
 
         var app = builder.Build();
 
