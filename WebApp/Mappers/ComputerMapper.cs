@@ -16,6 +16,7 @@ public class ComputerMapper
             GraphicsCard = entity.GraphicsCard,
             Manufacturer = entity.Manufacturer,
             ProductionDate = entity.ProductionDate,
+            Organization = entity.Organization,
         };
     }
 
@@ -30,6 +31,7 @@ public class ComputerMapper
             GraphicsCard = model.GraphicsCard,
             Manufacturer = model.Manufacturer,
             ProductionDate = model.ProductionDate,
+            OrganizationId = model.OrganizationId
         };
     }
 }

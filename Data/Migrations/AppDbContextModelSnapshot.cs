@@ -56,7 +56,7 @@ namespace Data.Migrations
                     b.Property<DateTime>("ProductionDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
-                        .HasDefaultValue(new DateTime(2024, 11, 20, 11, 54, 7, 940, DateTimeKind.Local).AddTicks(1760))
+                        .HasDefaultValue(new DateTime(2025, 1, 9, 13, 42, 16, 208, DateTimeKind.Local).AddTicks(6850))
                         .HasColumnName("production_date");
 
                     b.HasKey("Id");

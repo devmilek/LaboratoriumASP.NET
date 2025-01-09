@@ -32,6 +32,9 @@ public class Computer
     
     [HiddenInput]
     public int OrganizationId { get; set; }
+    
+    [ValidateNever]
+    public OrganizationEntity Organization { get; set; }
 
     [ValidateNever]
     public List<SelectListItem> Organizations{ get; set; }

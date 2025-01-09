@@ -1,5 +1,6 @@
 using Data;
 using Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using WebApp.Models;
 using WebApp.Mappers;
 
@@ -48,7 +49,8 @@ public class EFComputerService : IComputerService
 
     public Computer? FindById(int id)
     {
-        var entity = _context.Computers.Find(id);
+        var entity = _context.Computers.Include(c => c.Organization).ThenInclude(o => o.Address)
+            .FirstOrDefault(c => c.Id == id);
         return entity != null ? ComputerMapper.FromEntity(entity) : null;
     }
 

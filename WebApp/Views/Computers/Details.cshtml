@@ -12,6 +12,13 @@
                 <strong>Karta graficzna:</strong> @Model.GraphicsCard <br/>
                 <strong>Producent:</strong> @Model.Manufacturer <br/>
                 <strong>Data produkcji:</strong> @Model.ProductionDate.ToString("yyyy-MM-dd") <br/>
+                @* <strong>Organizacja:</strong> @Model.Organization.Title <br/> *@
+                @* <strong>Adres:</strong> @Model.Organization.Address.Street, @Model.Organization.Address.City, @Model.Organization.Address.PostalCode, @Model.Organization.Address.Region <br/> *@
+                <strong>Organizacja:</strong> @Model.Organization.Title <br/>
+                <strong>Adres:</strong> <br/>
+                <span>@Model.Organization.Address.Street</span> <br/>
+                <span>@Model.Organization.Address.City, @Model.Organization.Address.PostalCode</span> <br/>
+                <span>@Model.Organization.Address.Region</span> <br/>
             </p>
             <a href="@Url.Action("Edit", "Computers", new { id = Model.Id })" class="btn btn-primary">Edytuj</a>
             <a href="@Url.Action("Index", "Computers")" class="btn btn-secondary">Wróć do listy</a>
