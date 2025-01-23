@@ -1,10 +1,12 @@
 ﻿using Data.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext<IdentityUser>
 {
     public DbSet<ComputerEntity> Computers { get; set; }
     public DbSet<OrganizationEntity> Organizations { get; set; }
@@ -23,6 +25,41 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+        
+        string ADMIN_ID = Guid.NewGuid().ToString();
+        string ROLE_ID = Guid.NewGuid().ToString();
+
+        modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
+        {
+            Name = "admin",
+            NormalizedName = "ADMIN",
+            Id = ROLE_ID,
+            ConcurrencyStamp = ROLE_ID
+        });
+        
+        var admin = new IdentityUser
+        {
+            Id = ADMIN_ID,
+            Email = "adam@wsei.edu.pl",
+            EmailConfirmed = true,
+            UserName = "adam@wsei.edu.pl", // użyj pełnego emaila
+            NormalizedUserName = "ADAM@WSEI.EDU.PL", // zgodnie z username
+            NormalizedEmail = "ADAM@WSEI.EDU.PL"
+        };
+        
+        PasswordHasher<IdentityUser> ph = new PasswordHasher<IdentityUser>();
+        admin.PasswordHash = ph.HashPassword(admin, "1234abcd!@#$ABCD");
+        
+        modelBuilder.Entity<IdentityUser>().HasData(admin);
+
+        modelBuilder.Entity<IdentityUserRole<string>>()
+            .HasData(new IdentityUserRole<string>
+            {
+                RoleId = ROLE_ID,
+                UserId = ADMIN_ID
+            });
+        
         modelBuilder.Entity<OrganizationEntity>().OwnsOne(e => e.Address);
 
         modelBuilder.Entity<ComputerEntity>().HasOne(e => e.Organization).WithMany(o => o.Computers)

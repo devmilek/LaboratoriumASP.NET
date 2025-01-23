@@ -1,4 +1,7 @@
 using WebApp.Services;
+using Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApp;
 
@@ -7,11 +10,17 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-
+        var connectionString = builder.Configuration.GetConnectionString("AppDbContextConnection") ?? throw new InvalidOperationException("Connection string 'AppDbContextConnection' not found.");
+        builder.Services.AddRazorPages();
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         builder.Services.AddDbContext<Data.AppDbContext>();
+
+        builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<Data.AppDbContext>();
         builder.Services.AddTransient<IComputerService, EFComputerService>();
+
+        builder.Services.AddMemoryCache();
+        builder.Services.AddSession();
 
         var app = builder.Build();
 
@@ -28,7 +37,10 @@ public class Program
 
         app.UseRouting();
 
+        app.UseAuthentication();
         app.UseAuthorization();
+        app.UseSession();
+        app.MapRazorPages();
 
         app.MapControllerRoute(
             name: "default",

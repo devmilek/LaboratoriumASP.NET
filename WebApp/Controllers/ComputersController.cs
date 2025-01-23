@@ -1,4 +1,6 @@
+using System.Security.Claims;
 using Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApp.Mappers;
@@ -7,16 +9,19 @@ using WebApp.Services;
 
 namespace WebApp.Controllers;
 
+[Authorize(Roles = "admin")]
 public class ComputersController : Controller
 {
     private readonly IComputerService _computerService;
+    private readonly ILogger<ComputersController> _logger;
 
-    public ComputersController(IComputerService computerService)
+    public ComputersController(IComputerService computerService, ILogger<ComputersController> logger)
     {
         _computerService = computerService;
     }
 
     // GET
+    [AllowAnonymous]
     public IActionResult Index()
     {
         var computers = _computerService.FindAll();
@@ -44,7 +49,7 @@ public class ComputersController : Controller
         {
             model.Organizations = _computerService.FindAllOrganizations()
                 .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title }).ToList();
-            return View(model); // ponowne wyświetlenie formularza z informacjami o błędach
+            return View(model);
         }
     }
 
