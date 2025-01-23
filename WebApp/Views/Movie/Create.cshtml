@@ -1,0 +1,113 @@
+@model MovieModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg">
+                <h2 class="card-header">
+                    Create movie
+                </h2>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label asp-for="Title" class="form-label"></label>
+                                <input class="form-control" asp-for="Title" />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label asp-for="Overview" class="form-label"></label>
+                                <textarea class="form-control" asp-for="Overview" rows="3"></textarea>
+                                <span asp-validation-for="Overview" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="ReleaseDate" class="form-label">Release Date</label>
+                                <input class="form-control" asp-for="ReleaseDate" type="date" />
+                                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Runtime" class="form-label">Runtime (min)</label>
+                                <input class="form-control" asp-for="Runtime" type="number" />
+                                <span asp-validation-for="Runtime" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Popularity" class="form-label"></label>
+                                <input class="form-control" asp-for="Popularity" type="number" step="0.1" />
+                                <span asp-validation-for="Popularity" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="VoteAverage" class="form-label">Vote Average</label>
+                                <input class="form-control" asp-for="VoteAverage" type="number" step="0.1" />
+                                <span asp-validation-for="VoteAverage" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label asp-for="Tagline" class="form-label">Tagline</label>
+                                <input class="form-control" asp-for="Tagline" />
+                                <span asp-validation-for="Tagline" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="filter" class="form-label">Search comapny</label>
+                                <input class="form-control" type="text" name="filter" id="filter" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="CompanyId" class="form-label">Company</label>
+                                <select class="form-control" asp-for="CompanyId" id="CompanyId"></select>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a asp-action="Index" class="text-muted">Back to list</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        let select = document.getElementById("CompanyId");
+        let filter = document.getElementById("filter");
+        filter.onchange = function (e) {
+            if (filter.value.lenght == 0) {
+                return;
+            }
+            fetch(`/api/companies?filter=${filter.value}`)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json()
+                    }
+                    throw "No OK, actual status " + response.status;
+                })
+                .then(json => {
+                    select.innerHTML = '';
+                    for (let item of json) {
+                        let option = document.createElement('option');
+                        option.setAttribute('value', item.companyId);
+                        option.innerText = item.companyName;
+                        select.appendChild(option);
+                    }
+                })
+                .catch(e => {
+                    console.log('Cant get data from api', e);
+                });
+        };
+    </script>
+}

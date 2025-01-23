@@ -2,6 +2,7 @@ using WebApp.Services;
 using Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using WebApp.Models;
 
 namespace WebApp;
 
@@ -15,6 +16,7 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         builder.Services.AddDbContext<Data.AppDbContext>();
+        builder.Services.AddDbContext<MoviesDbContext>();
 
         builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<Data.AppDbContext>();
         builder.Services.AddTransient<IComputerService, EFComputerService>();
@@ -36,6 +38,7 @@ public class Program
         app.UseStaticFiles();
 
         app.UseRouting();
+        app.UseMiddleware<LastVisitCookie>();
 
         app.UseAuthentication();
         app.UseAuthorization();
