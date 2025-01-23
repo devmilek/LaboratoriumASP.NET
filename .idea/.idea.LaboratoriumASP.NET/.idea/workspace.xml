@@ -8,19 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="818a796b-9c17-4ddd-8d7c-06e749cb61f3" name="Changes" comment="wykonanie zadania zaliczeniowego">
+    <list default="true" id="818a796b-9c17-4ddd-8d7c-06e749cb61f3" name="Changes" comment="updates">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LaboratoriumASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LaboratoriumASP.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/HeroesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/HeroesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/MovieController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Models/MovieModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Models/MovieModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Models/SuperheroModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Models/SuperheroModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Heroes/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Heroes/Create.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Heroes/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Heroes/Edit.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Heroes/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Heroes/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Movie/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/HeroesDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/HeroesDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/MoviesDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/MoviesDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +45,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/milek/Desktop/Projekty/DOT.NET/LaboratoriumASP.NET/WebApp/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f6aa70de171fbea4106e388ea1d426b4a1fce3d999cf403fe5b3864175217e/PartialTagHelper.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -126,7 +121,7 @@
       <workItem from="1736425432233" duration="4015000" />
       <workItem from="1737627978268" duration="170000" />
       <workItem from="1737628171843" duration="15668000" />
-      <workItem from="1737646073948" duration="5365000" />
+      <workItem from="1737646073948" duration="6395000" />
     </task>
     <task id="LOCAL-00001" summary="Laboratorium5">
       <option name="closed" value="true" />
@@ -200,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737649294370</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="updates">
+      <option name="closed" value="true" />
+      <created>1737652968673</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1737652968673</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +233,7 @@
     <MESSAGE value="add movies db and pagination" />
     <MESSAGE value="add middleware" />
     <MESSAGE value="wykonanie zadania zaliczeniowego" />
-    <option name="LAST_COMMIT_MESSAGE" value="wykonanie zadania zaliczeniowego" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
 </project>

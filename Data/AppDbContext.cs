@@ -13,9 +13,8 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
     private string DbPath { get; set; }
     public AppDbContext()
     {
-        var folder = Environment.SpecialFolder.LocalApplicationData;
-        var path = Environment.GetFolderPath(folder);
-        DbPath = System.IO.Path.Join(path, "computers.db");
+        var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "data.db");
+        DbPath = path;
     }
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {

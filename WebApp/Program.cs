@@ -16,8 +16,12 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         builder.Services.AddDbContext<Data.AppDbContext>();
-        builder.Services.AddDbContext<MoviesDbContext>();
-        builder.Services.AddDbContext<HeroesDbContext>();
+        builder.Services.AddDbContext<MoviesDbContext>(options => {
+            options.UseSqlite(builder.Configuration["MoviesDatabase:ConnectionString"]);
+        });
+        builder.Services.AddDbContext<HeroesDbContext>(options => {
+            options.UseSqlite(builder.Configuration["HeroesDatabase:ConnectionString"]);
+        });
 
         builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<Data.AppDbContext>();
         builder.Services.AddTransient<IComputerService, EFComputerService>();
