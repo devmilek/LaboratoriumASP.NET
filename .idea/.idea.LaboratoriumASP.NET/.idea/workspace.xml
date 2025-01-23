@@ -8,13 +8,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="818a796b-9c17-4ddd-8d7c-06e749cb61f3" name="Changes" comment="add identity">
-      <change afterPath="$PROJECT_DIR$/WebApp/Controllers/CompaniesApiController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Models/MovieModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Models/PagingListAsync.cs" afterDir="false" />
+    <list default="true" id="818a796b-9c17-4ddd-8d7c-06e749cb61f3" name="Changes" comment="wykonanie zadania zaliczeniowego">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LaboratoriumASP.NET/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LaboratoriumASP.NET/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/HeroesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/HeroesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Controllers/MovieController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Models/MovieModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Models/MovieModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Models/SuperheroModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Models/SuperheroModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Views/Heroes/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Heroes/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Views/Heroes/Delete.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Views/Heroes/Edit.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Views/Heroes/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Heroes/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Views/Movie/Delete.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Laboratorium7" />
+        <entry key="$PROJECT_DIR$" value="Laboratorium9" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,6 +50,9 @@
     &quot;accountId&quot;: &quot;939c3df8-cfef-44fd-9c13-ccd17a8f930c&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f6aa70de171fbea4106e388ea1d426b4a1fce3d999cf403fe5b3864175217e/PartialTagHelper.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -58,7 +67,7 @@
   "keyToString": {
     ".NET Launch Settings Profile.WebApp: http.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Laboratorium8",
+    "git-widget-placeholder": "zadanie__zaliczeniowe",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,7 +125,8 @@
       <workItem from="1732700990550" duration="32000" />
       <workItem from="1736425432233" duration="4015000" />
       <workItem from="1737627978268" duration="170000" />
-      <workItem from="1737628171843" duration="9192000" />
+      <workItem from="1737628171843" duration="15668000" />
+      <workItem from="1737646073948" duration="5365000" />
     </task>
     <task id="LOCAL-00001" summary="Laboratorium5">
       <option name="closed" value="true" />
@@ -166,7 +176,31 @@
       <option name="project" value="LOCAL" />
       <updated>1737633853091</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add movies db and pagination">
+      <option name="closed" value="true" />
+      <created>1737639380012</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1737639380013</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add middleware">
+      <option name="closed" value="true" />
+      <created>1737639395971</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1737639395971</updated>
+    </task>
+    <task id="LOCAL-00009" summary="wykonanie zadania zaliczeniowego">
+      <option name="closed" value="true" />
+      <created>1737649294370</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1737649294370</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +227,9 @@
     <MESSAGE value="display organization" />
     <MESSAGE value="lab7" />
     <MESSAGE value="add identity" />
-    <option name="LAST_COMMIT_MESSAGE" value="add identity" />
+    <MESSAGE value="add movies db and pagination" />
+    <MESSAGE value="add middleware" />
+    <MESSAGE value="wykonanie zadania zaliczeniowego" />
+    <option name="LAST_COMMIT_MESSAGE" value="wykonanie zadania zaliczeniowego" />
   </component>
 </project>

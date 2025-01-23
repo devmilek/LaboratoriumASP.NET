@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Data;
 using Data.Models.Movies;
+using Microsoft.AspNetCore.Authorization;
 using WebApp.Models;
 
 namespace WebApp.Controllers
 {
+    [Authorize]
     public class MovieController : Controller
     {
         private readonly MoviesDbContext _context;
@@ -21,6 +23,7 @@ namespace WebApp.Controllers
         }
 
         // GET: Movie
+        [AllowAnonymous]
         public IActionResult Index(int page = 1, int size = 20)
         {
             return View( PagingListAsync<Movie>.Create(
@@ -146,39 +149,6 @@ namespace WebApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(movie);
-        }
-
-        // GET: Movie/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var movie = await _context.Movies
-                .FirstOrDefaultAsync(m => m.MovieId == id);
-            if (movie == null)
-            {
-                return NotFound();
-            }
-
-            return View(movie);
-        }
-
-        // POST: Movie/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var movie = await _context.Movies.FindAsync(id);
-            if (movie != null)
-            {
-                _context.Movies.Remove(movie);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
 
         private bool MovieExists(int id)

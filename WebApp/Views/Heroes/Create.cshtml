@@ -10,27 +10,104 @@ Layout = "~/Views/Shared/_Layout.cshtml";
 <h4>Superhero</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6 offset-md-3">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="form-group mb-3">
                 <label asp-for="SuperheroName" class="control-label"></label>
                 <input asp-for="SuperheroName" class="form-control" />
                 <span asp-validation-for="SuperheroName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="form-group mb-3">
                 <label for="powerSearch" class="control-label">Search Powers</label>
                 <input type="text" id="powerSearch" class="form-control" placeholder="Search for powers..." />
             </div>
-            <div class="form-group">
+
+            <div class="form-group mb-3">
                 <label for="selectedPowers" asp-for="Powers" class="control-label">Selected Powers</label>
-                <select id="selectedPowers" asp-for="Powers" class="form-control" multiple></select>
+                <select id="selectedPowers" asp-for="Powers" class="form-control" multiple>
+                    @if (ViewData["AvailablePowers"] != null && ((IEnumerable<SelectListItem>)ViewData["AvailablePowers"]).Any())
+                    {
+                        @foreach (var power in ViewData["AvailablePowers"] as IEnumerable<SelectListItem>)
+                        {
+                            <option value="@power.Value">@power.Text</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Powers" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="form-group mb-3">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="GenderId" class="control-label"></label>
+                <select asp-for="GenderId" class="form-control" asp-items="ViewBag.GenderId"></select>
+                <span asp-validation-for="GenderId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="EyeColourId" class="control-label"></label>
+                <select asp-for="EyeColourId" class="form-control" asp-items="ViewBag.EyeColourId"></select>
+                <span asp-validation-for="EyeColourId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="HairColourId" class="control-label"></label>
+                <select asp-for="HairColourId" class="form-control" asp-items="ViewBag.HairColourId"></select>
+                <span asp-validation-for="HairColourId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="SkinColourId" class="control-label"></label>
+                <select asp-for="SkinColourId" class="form-control" asp-items="ViewBag.SkinColourId"></select>
+                <span asp-validation-for="SkinColourId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="RaceId" class="control-label"></label>
+                <select asp-for="RaceId" class="form-control" asp-items="ViewBag.RaceId"></select>
+                <span asp-validation-for="RaceId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PublisherId" class="control-label"></label>
+                <select asp-for="PublisherId" class="form-control" asp-items="ViewBag.PublisherId"></select>
+                <span asp-validation-for="PublisherId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="AlignmentId" class="control-label"></label>
+                <select asp-for="AlignmentId" class="form-control" asp-items="ViewBag.AlignmentId"></select>
+                <span asp-validation-for="AlignmentId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="HeightCm" class="control-label"></label>
+                <input asp-for="HeightCm" class="form-control" type="number" />
+                <span asp-validation-for="HeightCm" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="WeightKg" class="control-label"></label>
+                <input asp-for="WeightKg" class="form-control" type="number" />
+                <span asp-validation-for="WeightKg" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts{
@@ -56,7 +133,3 @@ Layout = "~/Views/Shared/_Layout.cshtml";
     });
 </script>
 }
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
