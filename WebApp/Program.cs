@@ -17,6 +17,7 @@ public class Program
         builder.Services.AddControllersWithViews();
         builder.Services.AddDbContext<Data.AppDbContext>();
         builder.Services.AddDbContext<MoviesDbContext>();
+        builder.Services.AddDbContext<HeroesDbContext>();
 
         builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<Data.AppDbContext>();
         builder.Services.AddTransient<IComputerService, EFComputerService>();

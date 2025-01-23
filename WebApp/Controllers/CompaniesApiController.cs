@@ -20,7 +20,7 @@ public class CompaniesApiController : ControllerBase
     {
         return Ok(_context.ProductionCompanies
             .Where(o => o.CompanyName.ToLower().Contains(filter.ToLower()))
-            .OrderBy(o => o.CompanyName)
+            .OrderBy(o => o.CompanyName).Take(20)
             .AsNoTracking()
             .AsEnumerable()
         );
